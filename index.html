@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		crossorigin="" />
+	<meta name="description"
+		content="V-City Lyon est un site web ou il est possible de venir réserver un vélo pour une durée de 20 minutes." />
+	<link rel="icon" type="image/jpg" href="icone_velo_vert.jpg" /> <!-- ajout d'une fav icone -->
+	<title>V-City Lyon</title>
+</head>
+
+<body>
+	<header>
+		<h1>Bienvenue sur V-City Lyon</h1>
+		<div class="carousel">
+			<div class="slide">
+				<img src="images_slider/Slide1.jpg" alt="tuto1" />
+			</div>
+			<div class="slide">
+				<img src="images_slider/Slide2.jpg" alt="tuto2" />
+			</div>
+			<div class="slide">
+				<img src="images_slider/Slide3.jpg" alt="tuto3" />
+			</div>
+			<div class="slide">
+				<img src="images_slider/Slide4.jpg" alt="tuto4" />
+			</div>
+			<div class="slide">
+				<img src="images_slider/Slide5.jpg" alt="tuto5" />
+			</div>
+		</div>
+		<div class="container_button">
+			<button class="btn_next_before" onclick="carousel.rotate(1)">Image précédente</button>
+			<button class="btn_start_pause" onclick="carousel.stop()">Pause</button>
+			<button class="btn_start_pause" onclick="carousel.play()">Play</button>
+			<button class="btn_next_before" onclick="carousel.rotate(-1)">Image suivante</button>
+		</div>
+		<div class="container_map_form">
+			<div id="map"></div>
+			<div id="formulaire">
+				<form>
+				<h2>Détails de la station</h2>
+				<p>
+					Nom de la station : <span id="name_station"></span> <br>
+				</p>
+				<p>
+					Adresse de la station : <span id="adresse"> aucune </span> <br>
+				</p>
+				<p>
+					Vélos disponible : <span id="bikes"> aucun </span> <br>
+				</p>
+					<input type="text" name="pseudo" id="nom" placeholder="Nom" size="30" maxlength="20" required />
+					<br><br>
+					<input type="text" name="pseudo" id="prénom" placeholder="Prénom" size="30" maxlength="20"
+						required />
+					<br><br>
+					<input type="submit" value="Réserver" id="button_book">
+				</form>
+			</div>
+		</div>
+		<div id="container_reservation_canvas">
+		<div id="reservationStatus">
+			<p>
+				Vélo réservé à la station : <span id="name"> aucune </span><br>
+			</p>
+			<p>
+				Située : <span id="adresse_resa"> aucune </span>
+			</p>
+			<p>
+				Pour :<span id="nom_resa"> aucun </span>
+				<span id="prénom_resa"> aucun </span>
+			</p>
+			<p id="timer">
+				Pour une durée de :<span id="minutes"> 20 </span>
+					minutes
+				<span id="secondes"> 0 </span>
+					secondes
+			</p>
+		</div>
+		<div id="reservationStatus_storage">
+			<p>
+				Vélo réservé à la station : <span id="name_storage"> aucune </span><br>
+			</p>
+			<p>
+				Pour :<span id="nom_resa_storage"> aucun </span>
+				<span id="prénom_resa_storage"> aucun </span>
+			</p>
+		</div>
+		<div>
+			<div id="container_signature">
+			<p>Signez ici pour confirmé votre réservation</p>
+			</div>
+			<canvas class="canvas" id="newSignature"></canvas>
+			<div id="btn_canvas">
+			<button id="btn_valid"> Validé</button>
+			<button id="btn_close"> Fermer </button>
+			<button id="btn_clear"> Effacer</button>
+			</div>
+		</div>
+		</div>
+	</header>
+		<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+		integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+		crossorigin=""></script>
+		<script src="poo_carrousel.js"></script>
+		<script src="ajax.js"></script>
+		<script src="poo_map.js"></script>
+		<script src="poo_canvas.js"></script>
+</body>
+
+</html>
